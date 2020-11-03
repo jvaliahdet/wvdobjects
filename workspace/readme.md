@@ -1,0 +1,3 @@
+deploy workspace only
+
+wks
