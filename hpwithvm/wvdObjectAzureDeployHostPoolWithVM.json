@@ -21,7 +21,7 @@
             "metadata": {
                 "description": "The name of the Hostpool to be created."
             },
-			"defaultValue": "$wvdhostpoolname"
+			"defaultValue": "type new hostpoolname"
         },
         "location": {
             "type": "string",
@@ -42,21 +42,21 @@
             "metadata": {
                 "description": "OUPath for the domain join"
             },
-            "defaultValue": "$wvdonpremou"
+            "defaultValue": "OnPremises target OU"
         },
         "domain": {
             "type": "string",
             "metadata": {
                 "description": "Domain to join"
             },
-            "defaultValue": "$onpremdomain"
+            "defaultValue": "OnPremises Domain"
         },
         "administratorAccountUsername": {
             "type": "string",
             "metadata": {
                 "description": "A username in the domain that has privileges to join the session hosts to the domain. For example, 'user1@contoso.com'."
             },
-            "defaultValue": "$domainjoinaccount"
+            "defaultValue": "domainjoinaccount@domain.com"
         },
         "administratorAccountPassword": {
             "type": "securestring",
@@ -77,7 +77,7 @@
             "metadata": {
                 "description": "The resource group of the session host VMs."
             },
-            "defaultValue": "$wvdvmresourcegroup"
+            "defaultValue": "WVD VM resource group"
         },
         "vmLocation": {
             "type": "string",
@@ -105,7 +105,7 @@
             "metadata": {
                 "description": "This prefix will be used in combination with the VM number to create the VM name. If using 'rdsh' as the prefix, VMs would be named 'rdsh-0', 'rdsh-1', etc. You should use a unique prefix to reduce name collisions in Active Directory. 11 character limit"
             },
-            "defaultValue": "$wvdnameprefix"
+            "defaultValue": "WVD Name prefix (11 char)"
         },
         "vmImageType": {
             "type": "string",
@@ -130,7 +130,7 @@
             "metadata": {
                 "description": "(Required when vmImageType = CustomImage) Resource ID of the image"
             },
-            "defaultValue": "/subscriptions/$subid/resourceGroups/$masterimagerg/providers/Microsoft.Compute/images/$masterimagename"
+            "defaultValue": "/subscriptions/YOUR-SUBSCRIPTION-ID/resourceGroups/MASTER-IMAGE-RG/providers/Microsoft.Compute/images/MASTER-IMAGE-NAME"
         },
         "vmDiskType": {
             "type": "string",
@@ -142,7 +142,7 @@
             "metadata": {
                 "description": "The VM disk type for the VM: HDD or SSD."
             },
-            "defaultValue": "Premium_LRS"
+            "defaultValue": "StandardSSD_LRS"
         },
         "vmUseManagedDisks": {
             "type": "bool",
@@ -163,21 +163,21 @@
             "metadata": {
                 "description": "The name of the virtual network the VMs will be connected to."
             },
-            "defaultValue": "$wvdvnetname"
+            "defaultValue": "WVD-VNET-NAME"
         },
         "existingSubnetName": {
             "type": "string",
             "metadata": {
                 "description": "The subnet the VMs will be placed in."
             },
-            "defaultValue": "$wvdsubnetname"
+            "defaultValue": "WVD-SUBNET-NAME"
         },
         "virtualNetworkResourceGroupName": {
             "type": "string",
             "metadata": {
                 "description": "The resource group containing the existing virtual network."
             },
-            "defaultValue": "$wvdvnetresourcegroup"
+            "defaultValue": "WVD-VNET-RESOURCEGROUP"
         },
         "usePublicIP": {
             "type": "bool",
