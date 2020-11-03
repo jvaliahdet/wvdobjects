@@ -1,0 +1,61 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "appGroupName": {
+            "type": "String",
+            "defaultValue": "appgroupname"
+        },
+        "appGroupDescription": {
+            "defaultValue": "",
+            "type": "String"
+        },
+        "hostpool": {
+            "defaultValue": "/subscriptions/d903347f-8caa-4490-bb27-7c718e11dea2/resourceGroups/{RG_NAME}/providers/Microsoft.DesktopVirtualization/hostpools/{HP_NAME}",
+            "type": "String"
+        },
+        "location": {
+            "defaultValue": "eastus",
+            "type": "String"
+        },
+        "friendlyName": {
+            "defaultValue": "appgroupfriendly name",
+            "type": "String"
+        },
+        "appGroups": {
+            "defaultValue": [
+            ],
+            "type": "Array"
+        },
+        "tags": {
+            "defaultValue": {
+            },
+            "type": "Object"
+        },
+        "apiVersion": {
+            "defaultValue": "2019-12-10-preview",
+            "type": "String",
+            "metadata": {
+                "description": "WVD api version"
+            }
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.DesktopVirtualization/applicationgroups",
+            "apiVersion": "2019-12-10-preview",
+            "name": "[parameters('appGroupName')]",
+            "location": "[parameters('location')]",
+            "tags": "[parameters('tags')]",
+            "kind": "Desktop",
+            "properties": {
+                "friendlyName": "[parameters('friendlyName')]",
+                "description": "[parameters('appGroupDescription')]",
+                "applicationGroupReferences": "[parameters('appGroups')]",
+                "applicationGroupType": "Desktop",
+                "hostPoolArmPath": "[parameters('hostpool')]"
+            }
+        }
+    ]
+}
+
